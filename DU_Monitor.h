@@ -1,0 +1,30 @@
+//////////////////////////////////////////////////////////////
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int);
+LRESULT CALLBACK MainDlgProc (HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK MoreDlgProc (HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK MoreCtrlProc (HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK AboutDlgProc (HWND, UINT, WPARAM, LPARAM);
+VOID APIENTRY DisplayContextMenu (HWND);
+BOOL AddNotifyIcon(HWND);
+BOOL DeleteNotifyIcon(HWND);
+BOOL ShowMonitorInfoBallon(HWND);
+BOOL ShowNotifyBallon(HWND, char *, char *);
+void UpdateNCDListBox(HWND);
+void UpdateTransparent(float);
+void ShowCfgStatus(HWND);
+void GetCfgFileName(void);
+void LoadCfg(void);
+void ApplyCfgToMain(void);
+void SetMainPos(void);
+void SetMainTransparent(void);
+void SetMainTopMost(void);
+void SaveCfg(void);
+LRESULT CALLBACK TrayNotifyProc (HWND, UINT, WPARAM, LPARAM);
+void ExitApp(HWND);
+void UpdateDataTimer (void *); // 线程函数参数
+void MiscTimer (void *);
+void UpdateDataProc (void);
+void ShowDetails(void);
+void *GetCurpIfTable(void);
+char *MacS(BYTE *, DWORD);
+void FriendlyOctets(float, char *);

@@ -1,0 +1,14 @@
+CC = tcc
+CFLAGS = -lmsvcrt -lshell32 -lshlwapi -liphlpapi
+EXESUF = .exe
+
+RES = NetworkMonitor
+PROG = DU_Monitor
+
+$(PROG): $(RES).o
+	$(CC) -o $@$(EXESUF) $(CFLAGS) $(PROG).c $^
+
+$(RES).o:
+	GoRC\GoRC /b /r $(RES).rc
+	windres -v -O coff -o $@ -J res $(RES).res
+	del /f /q $(RES).res
