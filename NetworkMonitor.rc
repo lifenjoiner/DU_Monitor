@@ -135,8 +135,8 @@ END
 TrayIcon ICON DISCARDABLE "Icon32_16C.ico"
 
 IDR_VERSION1 VERSIONINFO
-FILEVERSION 1,0,0,1
-PRODUCTVERSION 1,0,0,1
+FILEVERSION 1,0,2,0
+PRODUCTVERSION 1,2,0,0
 FILEOS 0x00000004
 FILETYPE 0x00000001
 BEGIN
@@ -144,8 +144,8 @@ BEGIN
   BEGIN
     BLOCK "08040000"
     BEGIN
-      VALUE "FileVersion", "1.0.0.0\0"
-      VALUE "ProductVersion", "1.0.0.0\0"
+      VALUE "FileVersion", "1.0.2.0\0"
+      VALUE "ProductVersion", "1.0.2.0\0"
       VALUE "FileDescription", "Download and Upload Monitor\0"
       VALUE "OriginalFilename", "DU_Monitor.exe\0"
       VALUE "ProductName", "DU Monitor\0"

@@ -445,7 +445,7 @@ void UpdateDataTimer (void *Param)
 {
     while (TRUE)
     {
-        sleep (Update_ms);  // 留些时间 InitDialog
+        Sleep(Update_ms);  // 留些时间 InitDialog
         UpdateDataProc();
     }
 }
@@ -474,6 +474,7 @@ void UpdateDataProc (void)
     {
     // 取数据成功，接着处理
         // 确保网卡数量一致
+        // pIfTable[1]->dwNumEntries: crash-when-restore-from-hibernation
         if (pIfTable[1]->dwNumEntries == pIfTable[0]->dwNumEntries) dataOk = TRUE;
         // 确保是同一网卡
         for (i = 0; i < pIfTable[1]->dwNumEntries; i++) {
@@ -677,7 +678,7 @@ void *GetCurpIfTable(void)
     DWORD dwRetVal;
 
     dwSize = 0;
-    pIfTable = malloc(dwSize);
+    pIfTable = malloc(1);
     dwRetVal = GetIfTable(pIfTable, &dwSize, FALSE);
     if (dwRetVal == ERROR_INSUFFICIENT_BUFFER) {
         free(pIfTable);
@@ -690,7 +691,7 @@ void *GetCurpIfTable(void)
         // 释放
         free(pIfTable);
         // 异常退出
-        return;
+        return NULL;
     }
     return pIfTable;
 }
@@ -701,7 +702,7 @@ void MiscTimer (void *Param)
 {
     while (TRUE)
     {
-        sleep (Update_ms * 10);
+        Sleep(Update_ms * 10);
         if (!IsWindow(hWND_MORE)) SetMainTopMost();   // 确保置顶
     }
 }
